@@ -66,7 +66,7 @@ const GameScreen = ({userNumber,setGameIsOver})=>{
         - */}
         <View>
           <PrimaryButton handlePress={()=> nextGuessHandler('lower')}>
-          <Ionicons name="md-add" size={24} color={"white"}/>
+          <Ionicons name="md-remove" size={24} color={"white"}/>
           </PrimaryButton>
           <PrimaryButton handlePress={()=> nextGuessHandler('higher')}>
             <Ionicons name="md-add" size={24} color={"white"}/>

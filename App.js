@@ -10,6 +10,9 @@ import GameOverScreen from './screens/GameOverScreen';
 export default function App() {
   const [userNumber,setUserNumber] = useState(null);
   const [gameIsOver,setGameIsOver]= useState(false);
+  
+  
+  
   function pickNumberHandler(newValue){
     setUserNumber(newValue);
   }
@@ -21,6 +24,7 @@ export default function App() {
   if(gameIsOver){
     screen = <GameOverScreen/>
   }
+
   return (
     <LinearGradient colors={['#4e0329','#ddb52f']} style={styles.container}>
       <ImageBackground source={require("./assets/images/background.png")} resizeMode='cover' style={styles.container} imageStyle={styles.backgroundImage}>
