@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Alert, StyleSheet, Text, View } from "react-native"
 import NumberContainer from "../components/NumberContainer";
 import PrimaryButton from "../components/PrimaryButton";
 import Title from "../components/Title";
-
+import {Ionicons} from "@expo/vector-icons"
 function generateRandomNumber(min, max, exclude, attempts = 0) {
   // Maximum attempts to avoid infinite recursion
   const maxAttempts = 10;
@@ -23,10 +23,17 @@ function generateRandomNumber(min, max, exclude, attempts = 0) {
 let minBoundary = 1;
 let maxBoundary = 100;
 
-const GameScreen = ({userNumber})=>{
+const GameScreen = ({userNumber,setGameIsOver})=>{
 
   const initialGuess = generateRandomNumber(minBoundary,maxBoundary,userNumber);
   const [currentGuess,setCurrentGuess] = useState(initialGuess);
+  
+  useEffect(()=>{
+    if(currentGuess === userNumber){
+      setGameIsOver(true)
+    }
+  },[currentGuess,userNumber])
+  
   function nextGuessHandler(direction){
 
     if((direction === 'lower' && currentGuess < userNumber) || (direction === 'higher' && currentGuess > userNumber)){
@@ -58,8 +65,12 @@ const GameScreen = ({userNumber})=>{
         {/* +
         - */}
         <View>
-          <PrimaryButton handlePress={()=> nextGuessHandler('lower')}>-</PrimaryButton>
-          <PrimaryButton handlePress={()=> nextGuessHandler('higher')}>+</PrimaryButton>
+          <PrimaryButton handlePress={()=> nextGuessHandler('lower')}>
+          <Ionicons name="md-add" size={24} color={"white"}/>
+          </PrimaryButton>
+          <PrimaryButton handlePress={()=> nextGuessHandler('higher')}>
+            <Ionicons name="md-add" size={24} color={"white"}/>
+          </PrimaryButton>
         </View>
       </View>
       <View>

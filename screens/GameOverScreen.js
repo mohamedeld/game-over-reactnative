@@ -1,8 +1,10 @@
-import { StyleSheet, View } from "react-native"
+import { StyleSheet, Text, View } from "react-native"
 
 const GameOverScreen = ()=>{
   return (
-    <View></View>
+    <View>
+      <Text>Welcome</Text>
+    </View>
   )
 }
 export default GameOverScreen;
