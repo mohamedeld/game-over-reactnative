@@ -19,6 +19,8 @@ const styles = StyleSheet.create({
     borderWidth:2,
     borderColor:'white',
     paddingVertical:10,
-    paddingHorizontal:20
+    paddingHorizontal:20,
+    maxWidth:'80%',
+    marginHorizontal:'auto'
   }
 })
